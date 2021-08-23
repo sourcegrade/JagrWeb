@@ -1,0 +1,110 @@
+/*!
+ *   JagrWeb - SourceGrade.org
+ *   Copyright (C) 2021 Contributors
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU Affero General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU Affero General Public License for more details.
+ *
+ *     You should have received a copy of the GNU Affero General Public License
+ *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+@import '~@angular/material/theming';
+@import './theme.scss';
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+mat-icon {
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.detail-container {
+    margin-top: 3rem;
+    background: #383838;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.flex-spacer {
+    flex: 1 1 auto;
+}
+
+.background-primary-50 {
+    background-color: mat-color($primary-palette) !important;
+}
+
+.background-primary {
+    background-color: mat-color($primary-palette) !important;
+}
+
+.color-primary {
+    color: mat-color($primary-palette) !important;
+}
+
+.border-primary {
+    border-color: mat-color($primary-palette) !important;
+}
+
+.background-accent {
+    background-color: mat-color($accent-palette) !important;
+}
+
+.color-accent {
+    color: mat-color($accent-palette) !important;
+}
+
+.border-accent {
+    border-color: mat-color($accent-palette) !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.grey-on-hover:hover {
+    background-color: #555;
+}
+
+.red-snackbar {
+    background: red;
+    color: white;
+}
+
+#loader {
+    width: 150px;
+    height: 150px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

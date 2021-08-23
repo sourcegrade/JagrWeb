@@ -1,0 +1,61 @@
+<!--
+  ~   JagrWeb - SourceGrade.org
+  ~   Copyright (C) 2021 Contributors
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU Affero General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU Affero General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU Affero General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<mat-sidenav-container>
+  <mat-sidenav class="text-left" mode="side" opened>
+    <button [color]="isActive('/') ? 'primary' : null" class="sidenav-button"
+            mat-button
+            routerLink="/">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button [color]="isActive('/assignments') ? 'primary' : null" class="sidenav-button"
+            mat-button
+            routerLink="/assignments">
+      <mat-icon>assignment</mat-icon>
+      <span>Assignments</span>
+    </button>
+    <button [color]="isActive('/submissions') ? 'primary' : null" class="sidenav-button"
+            mat-button
+            routerLink="/submissions">
+      <mat-icon>assignment_turned_in</mat-icon>
+      <span>Submissions</span>
+    </button>
+    <button [color]="isActive('/graders') ? 'primary' : null" class="sidenav-button"
+            mat-button
+            routerLink="/graders">
+      <mat-icon>check</mat-icon>
+      <span>Graders</span>
+    </button>
+    <button [color]="isActive('/grading-batches') ? 'primary' : null" class="sidenav-button"
+            mat-button
+            routerLink="/grading-batches">
+      <mat-icon>toc</mat-icon>
+      <span>Grading Batches</span>
+    </button>
+    <button [color]="isActive('/users') ? 'primary' : null" class="sidenav-button"
+            mat-button
+            routerLink="/users">
+      <mat-icon>people</mat-icon>
+      <span>Users</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

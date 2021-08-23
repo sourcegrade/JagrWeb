@@ -1,0 +1,45 @@
+<!--
+  ~   JagrWeb - SourceGrade.org
+  ~   Copyright (C) 2021 Contributors
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU Affero General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU Affero General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU Affero General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<section class="container detail-container">
+  <h1>
+    {{ submission.name }}
+    <submission-status [element]="submission"></submission-status>
+  </h1>
+  <h5 class="text-white-50">
+    {{ submission.id }}
+  </h5>
+  <mat-divider class="my-2"></mat-divider>
+  <h2 class="mt-4">Uploads</h2>
+  <table [dataSource]="submission.uploads" class="w-100" mat-table>
+    <ng-container matColumnDef="version">
+      <th *matHeaderCellDef class="text-center" mat-header-cell>Version</th>
+      <td *matCellDef="let element" class="text-center" mat-cell>
+        {{ (element.version.major ?? 0) + "." + (element.version.minor ?? 0) + "." + (element.version.patch ?? 0) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="jobs">
+      <th *matHeaderCellDef class="text-center" mat-header-cell>Jobs</th>
+      <td *matCellDef="let element" class="text-center" mat-cell>
+        <button *ngFor="let job of element.jobs" color="primary" mat-button>{{ job.batchId }}</button>
+      </td>
+    </ng-container>
+    <tr *matHeaderRowDef="uploadColumns; sticky: true" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: uploadColumns" mat-row></tr>
+  </table>
+</section>

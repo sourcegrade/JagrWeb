@@ -1,0 +1,38 @@
+<!--
+  ~   JagrWeb - SourceGrade.org
+  ~   Copyright (C) 2021 Contributors
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU Affero General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU Affero General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU Affero General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<div class="m-3">
+  <mat-card *ngFor="let element of dataSource.data">
+    <mat-card-header>
+      <mat-card-title>
+        <ng-template #nameCell [elementData]="element" [elementKey]="'name'"></ng-template>
+        <ng-template #statusCell [elementData]="element" [elementKey]="'status'"></ng-template>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let column of columnNameMap | keyvalue">
+          <ng-template #customCell [elementData]="element" [elementKey]="definitelyKeyOfT(column.key)"></ng-template>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions *ngIf="domConverter?.action">
+      <ng-template #actionCell [elementData]="element" [elementKey]="'action'"></ng-template>
+    </mat-card-actions>
+  </mat-card>
+</div>
